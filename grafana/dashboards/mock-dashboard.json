@@ -1,0 +1,52 @@
+{
+  "id": null,
+  "title": "Mock Exporter Overview",
+  "uid": "mock-exp",
+  "timezone": "browser",
+  "schemaVersion": 36,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "CPU Usage (%)",
+      "targets": [{ "expr": "mock_cpu_percent", "refId": "A" }],
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "type": "bargauge",
+      "title": "Disk Usage (GB)",
+      "targets": [{ "expr": "mock_disk_used_gb", "refId": "B" }],
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "type": "stat",
+      "title": "Uptime (seconds)",
+      "targets": [{ "expr": "mock_uptime_seconds_total", "refId": "C" }],
+      "gridPos": { "x": 0, "y": 8, "w": 6, "h": 6 }
+    },
+    {
+      "type": "table",
+      "title": "Service Health",
+      "targets": [{ "expr": "mock_service_health", "refId": "D" }],
+      "gridPos": { "x": 6, "y": 8, "w": 18, "h": 6 },
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "fieldConfig": {
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "Value" },
+            "properties": [
+              { "id": "mappings", "value": [
+                { "type": 1, "from": "1", "to": "1", "text": "UP", "color": "green" },
+                { "type": 1, "from": "0", "to": "0", "text": "DOWN", "color": "red" }
+              ]}
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
