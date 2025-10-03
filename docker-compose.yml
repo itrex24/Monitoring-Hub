@@ -14,3 +14,8 @@ services:
       - ./grafana/dashboards:/var/lib/grafana/dashboards
     ports: [ "3000:3000" ]
     depends_on: [ prometheus ]
+  mock-exporter:
+    build:
+      context: ./python-scripts
+    ports:
+      - "8000:8000"
