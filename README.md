@@ -1,29 +1,27 @@
-# 📊 Monitoring Hub (Mock Version)
+# Monitoring Hub
 
-## Goal
-A one-stop **monitoring hub** that aggregates metrics (PRTG, Tenable, IIS, etc.) into **Prometheus + Grafana**.
+## Overview
+A lightweight monitoring stack with **Prometheus**, **Grafana**, and a custom **Python exporter** that generates mock metrics (CPU, Disk, Uptime, Service Health).  
 
-- **Phase 1 (now)**: Mock data with a tiny Python service.
-- **Phase 2**: Real collectors for work tools.
-- **Phase 3**: Optional Azure VM deployment.
+This project demonstrates how to build a full monitoring pipeline from scratch, provision dashboards automatically, and version-control the entire setup.
 
-## Architecture (Phase 1 – Mock)
+---
 
+## Architecture
 ![Architecture Diagram](docs/architecture-diagram.png)
 
-## Tech Stack
-- Python (collectors)
-- Prometheus (TSDB)
-- Grafana (visuals)
-- Docker Compose (local)
+---
 
-## Roadmap
-- [ ] Mock metrics service (`/metrics` in Prometheus format)
-- [ ] Prometheus + Grafana via Docker Compose
-- [ ] Dashboards (CPU, uptime, disk)
-- [ ] Real collectors: PRTG, Tenable, IIS
-- [ ] Optional: Deploy to Azure VM
+## Components
+- **Prometheus** → scrapes metrics from exporters.  
+- **Python Exporter** → mock `/metrics` endpoint using Flask + prometheus_client.  
+- **Grafana** → dashboards for visualization (auto-provisioned).  
 
-## Quick Start (coming next)
-- `docker-compose up -d`
-- `python python-scripts/mock_metrics.py`
+---
+
+## Quickstart
+
+1. Clone repo:
+   ```bash
+   git clone git@github.com:itrex24/Monitoring-Hub.git
+   cd Monitoring-Hub
